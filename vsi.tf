@@ -40,3 +40,14 @@ resource "ibm_is_instance" "testacc_instance" {
   zone = "us-south-3"
   keys = [data.ibm_is_ssh_key.testacc_sshkey.id]
 }
+
+resource "null_resource" "sleep" {
+  triggers = {
+    uuid = uuid()
+  }
+
+  provisioner "local-exec" {
+    command = "sleep ${var.sleepy_time}"
+  } 
+  depends_on = [ibm_is_instance.testacc_instance]
+}
