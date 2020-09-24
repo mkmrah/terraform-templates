@@ -37,6 +37,6 @@ resource "ibm_is_instance" "testacc_instance" {
   }
 
   vpc  = var.vpcid
-  zone = "us-south-1"
+  zone = "us-south"
   keys = [data.ibm_is_ssh_key.testacc_sshkey.id]
 }
