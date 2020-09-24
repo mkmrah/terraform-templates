@@ -15,6 +15,10 @@ variable "instance_name" {
   description = "Prefix to the name of the vsi"
 }
 
+variable "imageid" {
+  description = "Enter the image id for the VSI"
+}
+
 data "ibm_is_ssh_key" "testacc_sshkey" {
   name = var.sshkey
 }
@@ -25,7 +29,7 @@ resource "random_id" "name" {
 
 resource "ibm_is_instance" "testacc_instance" {
   name    = "${var.instance_name}${random_id.name.hex}"
-  image   = "r006-ed3f775f-ad7e-4e37-ae62-7199b4988b00"
+  image   = var.imageid
   profile = "cx2-2x4"
 
   primary_network_interface {
@@ -33,6 +37,6 @@ resource "ibm_is_instance" "testacc_instance" {
   }
 
   vpc  = var.vpcid
-  zone = "us-south-3"
+  zone = "us-south-1"
   keys = [data.ibm_is_ssh_key.testacc_sshkey.id]
 }
