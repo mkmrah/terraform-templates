@@ -2,6 +2,11 @@ variable "vpcid" {
   description = "Enter the vpc id"
 }
 
+variable "region" {
+  description = "Enter the vpc region"
+  default = "us-south-3"
+}
+
 variable "subnetid" {
   description = "Enter the subnet id"
 }
@@ -37,7 +42,7 @@ resource "ibm_is_instance" "testacc_instance" {
   }
 
   vpc  = var.vpcid
-  zone = "us-south-3"
+  zone = "${var.region}"
   keys = [data.ibm_is_ssh_key.testacc_sshkey.id]
 }
 
