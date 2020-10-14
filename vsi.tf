@@ -1,3 +1,7 @@
+provider "ibm" {
+  region = "eu-de"
+}
+
 variable "vpcid" {
   description = "Enter the vpc id"
   default = "r010-06a1153a-a34c-41ee-9ab7-dc713b97c2af"
