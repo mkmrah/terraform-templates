@@ -4,7 +4,7 @@ variable "vpcid" {
 
 variable "region" {
   description = "Enter the vpc region"
-  default = "us-south-3"
+  default = "eu-de"
 }
 
 variable "subnetid" {
