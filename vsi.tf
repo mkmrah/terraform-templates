@@ -1,5 +1,6 @@
 variable "vpcid" {
   description = "Enter the vpc id"
+  default = "r010-06a1153a-a34c-41ee-9ab7-dc713b97c2af"
 }
 
 variable "region" {
@@ -9,10 +10,12 @@ variable "region" {
 
 variable "subnetid" {
   description = "Enter the subnet id"
+  default = "02d7-9cdb9e45-51a8-4b99-8eb0-4637616fb298"
 }
 
 variable "sshkey" {
   description = "Enter the ssh key name"
+  default = "smfr-2ops"
 }
 
 variable "instance_name" {
@@ -22,10 +25,11 @@ variable "instance_name" {
 
 variable "imageid" {
   description = "Enter the image id for the VSI"
+  default = "r006-ed3f775f-ad7e-4e37-ae62-7199b4988b00"
 }
 
 data "ibm_is_ssh_key" "testacc_sshkey" {
-  name = var.sshkey
+  name = "smfr-2ops"
 }
 
 resource "random_id" "name" {
